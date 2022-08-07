@@ -4,25 +4,27 @@ import PropTypes from "prop-types";
 
 const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
     const pageCount = Math.ceil(itemsCount / pageSize);
-    if (pageCount === 1) return null;
+
+    if (pageCount === 1) {
+        return null;
+    }
     const pages = _.range(1, pageCount + 1);
+
     return (
         <nav>
-            <ul className="pagination">
-                {pages.map((page) => (
+            <ul className="pagination m-2">
+                {pages.map(page => (
                     <li
-                        className={
-                            "page-item" +
-                            (currentPage === page ? " active" : "")
-                        }
-                        key={"page_" + page}
+                        key={ "page_" + page }
+                        className={"page-item" + (page === currentPage ? " active" : "") }
                     >
-                        <a
+                        <button
                             className="page-link"
                             onClick={() => onPageChange(page)}
+                            style={{ cursor: "pointer" }}
                         >
                             {page}
-                        </a>
+                        </button>
                     </li>
                 ))}
             </ul>
@@ -35,5 +37,4 @@ Pagination.propTypes = {
     onPageChange: PropTypes.func.isRequired,
     currentPage: PropTypes.number.isRequired
 };
-
 export default Pagination;
