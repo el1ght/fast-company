@@ -18,14 +18,12 @@ const SearchStatus = ({ length }) => {
             >
                 {length > 0
                     ? `${length + " " + renderPhrase(length)}   с тобой сегодня`
-                    : "Никто с тобой не тусанет(("}
+                    : "Никто с тобой не тусанет"}
             </span>
         </h2>
     );
 };
-
 SearchStatus.propTypes = {
     length: PropTypes.number.isRequired
 };
-
 export default SearchStatus;

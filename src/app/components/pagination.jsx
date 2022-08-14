@@ -13,10 +13,13 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
     return (
         <nav>
             <ul className="pagination m-2">
-                {pages.map(page => (
+                {pages.map((page) => (
                     <li
-                        key={ "page_" + page }
-                        className={"page-item" + (page === currentPage ? " active" : "") }
+                        key={"page_" + page}
+                        className={
+                            "page-item" +
+                            (page === currentPage ? " active" : "")
+                        }
                     >
                         <button
                             className="page-link"

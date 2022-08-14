@@ -2,9 +2,6 @@ import React from "react";
 import Qualitie from "./qualitie";
 import BookMark from "./bookmark";
 import PropTypes from "prop-types";
-
-const maxRate = 5;
-
 const User = ({
     _id,
     name,
@@ -20,15 +17,13 @@ const User = ({
         <tr>
             <td>{name}</td>
             <td>
-                {qualities.map((quality) => (
-                    <Qualitie key={quality._id} {...quality} />
+                {qualities.map((qual) => (
+                    <Qualitie key={qual._id} {...qual} />
                 ))}
             </td>
             <td>{profession.name}</td>
             <td>{completedMeetings}</td>
-            <td>
-                {rate} /{maxRate}
-            </td>
+            <td>{rate} /5</td>
             <td>
                 <BookMark
                     status={bookmark}
@@ -37,8 +32,8 @@ const User = ({
             </td>
             <td>
                 <button
-                    className="btn btn-danger"
                     onClick={() => onDelete(_id)}
+                    className="btn btn-danger"
                 >
                     delete
                 </button>
@@ -46,7 +41,6 @@ const User = ({
         </tr>
     );
 };
-
 User.propTypes = {
     _id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
@@ -58,5 +52,4 @@ User.propTypes = {
     bookmark: PropTypes.bool.isRequired,
     onToggleBookMark: PropTypes.func.isRequired
 };
-
 export default User;
