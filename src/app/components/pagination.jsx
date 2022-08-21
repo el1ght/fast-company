@@ -1,8 +1,8 @@
-import React from "react";
-import _ from "lodash";
-import PropTypes from "prop-types";
+import React from 'react';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 
-const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
+const Pagination = ({itemsCount, pageSize, onPageChange, currentPage}) => {
     const pageCount = Math.ceil(itemsCount / pageSize);
 
     if (pageCount === 1) {
@@ -13,18 +13,15 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
     return (
         <nav>
             <ul className="pagination m-2">
-                {pages.map((page) => (
+                {pages.map(page => (
                     <li
-                        key={"page_" + page}
-                        className={
-                            "page-item" +
-                            (page === currentPage ? " active" : "")
-                        }
+                        key={'page_' + page}
+                        className={'page-item' + (page === currentPage ? ' active' : '') }
                     >
                         <button
-                            className="page-link"
+                            className='page-link'
                             onClick={() => onPageChange(page)}
-                            style={{ cursor: "pointer" }}
+                            style={{cursor: 'pointer'}}
                         >
                             {page}
                         </button>

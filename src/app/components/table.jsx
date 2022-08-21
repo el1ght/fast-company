@@ -1,17 +1,17 @@
-import React from "react";
-import TableHeader from "./tableHeader";
-import TableBody from "./tableBody";
-import PropTypes from "prop-types";
-const Table = ({ selectedSort, onSort, columns, data, children }) => {
+import React from 'react';
+import TableHeader from './tableHeader';
+import TableBody from './tableBody';
+import PropTypes from 'prop-types';
+const Table = ({selectedSort, onSort, columns, data, children}) => {
     return (
-        <table className="table" style={{ width: "1100px" }}>
-            {children || (
+        <table className="table" style={{width: '1100px'}}>
+            {children ||
                 <>
-                    <TableHeader {...{ selectedSort, onSort, columns }} />
-                    <TableBody {...{ data, columns }} />
-                </>
-            )}
+                    <TableHeader {...{selectedSort, onSort, columns}}/>
+                    <TableBody {...{data, columns}} />
+                </> }
         </table>
+
     );
 };
 Table.propTypes = {
