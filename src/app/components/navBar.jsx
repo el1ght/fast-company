@@ -1,13 +1,26 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
     return (
-        <ul style={{display: 'flex', gap: '40px', listStyle: 'none'}}>
-            <li><Link style={{textDecoration: 'none'}} to='/'>Main</Link></li>
-            <li><Link style={{textDecoration: 'none'}} to='/login'>Login</Link></li>
-            <li><Link style={{textDecoration: 'none'}} to='/users'>Users</Link></li>
+        <ul className="nav">
+            <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to="/">
+                    Main
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to="/login">
+                    Login
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link className="nav-link " aria-current="page" to="/users">
+                    Users
+                </Link>
+            </li>
         </ul>
     );
 };
+
 export default NavBar;

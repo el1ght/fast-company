@@ -3,25 +3,22 @@ module.exports = {
         browser: true,
         es2021: true
     },
-    extends: [
-        'plugin:react/recommended',
-        'standard'
-    ],
+    extends: ["plugin:react/recommended", "standard"],
     parserOptions: {
-        ecmaVersion: 12,
-        sourceType: 'module',
         ecmaFeatures: {
-            legacyDecorators: true
-        }
+            jsx: true
+        },
+        ecmaVersion: "latest",
+        sourceType: "module"
     },
-    plugins: [
-        'react'
-    ],
+    plugins: ["react"],
     rules: {
-        indent: ['error', 4],
-        semi: [2, 'always'],
-        'space-before-function-paren': ['error', 'never'],
-        quotes: ['error', 'single', {allowTemplateLiterals: true}],
-        'object-curly-spacing': ['error', 'never']
+        indent: [0, 4],
+        semi: [2, "always"],
+        "space-before-function-paren": [
+            "error",
+            { anonymous: "always", named: "never" }
+        ],
+        quotes: ["error", "double", { allowTemplateLiterals: true }]
     }
 };

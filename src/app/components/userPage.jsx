@@ -1,38 +1,37 @@
-import React, {useEffect, useState} from 'react';
-import PropTypes from 'prop-types';
-import api from '../api/index';
-import QualitiesList from './qualitiesList';
-import {useHistory} from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import api from "../api";
+import QualitiesList from "./qualitieslist";
+import { useHistory } from "react-router-dom";
+import Loader from "./loader";
 
-const UserPage = ({id}) => {
+const UserPage = ({ userId }) => {
     const history = useHistory();
-    const [userById, setUserById] = useState();
-
+    const [user, setUser] = useState();
     useEffect(() => {
-        api.users.getById(id).then(data => setUserById(data));
-    }, []);
-
-    const handelSave = () => {
-        history.push('/users');
+        api.users.getById(userId).then((data) => setUser(data));
+    });
+    const handleClick = () => {
+        history.push("/users");
     };
-    return (
-        <div style={{marginLeft: '10px'}}>
-            {
-                userById
-                    ? <div>
-                        <h1>{userById.name}</h1>
-                        <h2>Профессия: {userById.profession.name}</h2>
-                        <QualitiesList qualities={userById.qualities}/>
-                        <p>completedMeetings: {userById.completedMeetings}</p>
-                        <h1>Rate: {userById.rate}</h1>
-                        <button onClick={() => handelSave()}>Все пользователи</button>
-                    </div>
-                    : <h1>Loading...</h1>
-            }
-        </div>
-    );
+    if (user) {
+        return (
+            <div>
+                <h1> {user.name}</h1>
+                <h2>Профессия: {user.profession.name}</h2>
+                <QualitiesList qualities={user.qualities} />
+                <p>completedMeetings: {user.completedMeetings}</p>
+                <h2>Rate: {user.rate}</h2>
+                <button onClick={handleClick}>Все Пользователи</button>
+            </div>
+        );
+    } else {
+        return <Loader />;
+    }
 };
+
 UserPage.propTypes = {
-    id: PropTypes.string.isRequired
+    userId: PropTypes.string.isRequired
 };
+
 export default UserPage;
