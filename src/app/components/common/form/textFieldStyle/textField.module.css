@@ -1,0 +1,35 @@
+.icon {
+    width: 25px;
+    opacity: 0.4;
+
+}
+.wrapper {
+    width: 500px;
+    position: relative;
+    border: 2px solid #f1f1f1;
+    border-radius: 8px;
+    padding: 0 4px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.wrapper:hover {
+    box-shadow: 3px 3px 10px #c5c5c5;;
+}
+.input {
+    width: 460px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    outline:none;
+}
+.wrapper::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    width: 23px;
+    height: 23px;
+    opacity: 0.4;
+    background-image: url("../../../../app/img/icon.svg");
+}
