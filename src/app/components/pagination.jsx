@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
     const pageCount = Math.ceil(itemsCount / pageSize);
     if (pageCount === 1) return null;
+
     const pages = _.range(1, pageCount + 1);
     return (
         <nav>
@@ -13,7 +14,7 @@ const Pagination = ({ itemsCount, pageSize, onPageChange, currentPage }) => {
                     <li
                         className={
                             "page-item" +
-                            (page === currentPage ? " active" : "")
+                            (currentPage === page ? " active" : "")
                         }
                         key={"page_" + page}
                     >

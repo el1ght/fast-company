@@ -12,7 +12,7 @@ const SelectField = ({label, value, onChange, defaultOption, options, error, nam
         onChange({name: target.name, value: target.value});
     };
     return (
-        <div className="md-4">
+        <div className="mb-4">
             <label htmlFor={name} className="form-label">
                 {label}
             </label>
@@ -44,7 +44,7 @@ const SelectField = ({label, value, onChange, defaultOption, options, error, nam
     );
 };
 SelectField.propTypes = {
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
     defaultOption: PropTypes.string,
