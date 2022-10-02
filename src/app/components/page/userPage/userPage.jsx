@@ -1,41 +1,38 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import api from '../../../api';
+import UserCard from '../../ui/userCard';
+import QualitiesCard from '../../ui/qualitiesCard';
+import MeetingsCard from '../../ui/meetingsCard';
 import Comments from '../../ui/comments';
-import UserCard from '../../ui/userCard/userCard';
-import QualitiesCard from '../../ui/userCard/qualitiesCard';
-import CardMeetings from '../../ui/userCard/cardMeetings';
 
-const UserPage = ({id}) => {
-    const [userById, setUserById] = useState();
+const UserPage = ({ userId }) => {
+    const [user, setUser] = useState();
     useEffect(() => {
-        api.users.getById(id).then(data => {
-            setUserById(data);
-        });
+        api.users.getById(userId).then((data) => setUser(data));
     }, []);
-
-    return (
-
-        <div className="container">
-            {userById
-                ? <div className="row gutters-sm">
+    if (user) {
+        return (
+            <div className="container">
+                <div className="row gutters-sm">
                     <div className="col-md-4 mb-3">
-                        <UserCard id={id} userById={userById} />
-                        <QualitiesCard data={userById.qualities} />
-                        <CardMeetings value={userById.completedMeetings} />
+                        <UserCard user={user} />
+                        <QualitiesCard data={user.qualities} />
+                        <MeetingsCard value={user.completedMeetings} />
                     </div>
                     <div className="col-md-8">
-                        <Comments id={id} />
+                        <Comments />
                     </div>
                 </div>
-                : <h1>Loading...</h1>
-            }
-
-        </div>
-
-    );
+            </div>
+        );
+    } else {
+        return <h1>Loading</h1>;
+    }
 };
+
 UserPage.propTypes = {
-    id: PropTypes.string.isRequired
+    userId: PropTypes.string.isRequired
 };
+
 export default UserPage;

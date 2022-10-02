@@ -26,14 +26,14 @@ if (!localStorage.getItem('comments')) {
 }
 const fetchAll = () =>
     new Promise((resolve) => {
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             resolve(comments);
         }, 200);
     });
 
 const fetchCommentsForUser = (userId) =>
     new Promise((resolve) => {
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             resolve(
                 JSON.parse(localStorage.getItem('comments')).filter(
                     (c) => c.pageId === userId
@@ -43,7 +43,7 @@ const fetchCommentsForUser = (userId) =>
     });
 const add = (data) =>
     new Promise((resolve) => {
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             const comments = JSON.parse(localStorage.getItem('comments'));
             const newComment = {
                 ...data,
@@ -58,7 +58,7 @@ const add = (data) =>
 
 const remove = (id) =>
     new Promise((resolve) => {
-        window.setTimeout(function() {
+        window.setTimeout(function () {
             const comments = JSON.parse(localStorage.getItem('comments'));
             const newComments = comments.filter((x) => x._id !== id);
             console.log(id);
