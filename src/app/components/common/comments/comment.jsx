@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { displayDate } from '../../../utils/displayDate';
-import API from '../../../api';
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { displayDate } from "../../../utils/displayDate";
+import API from "../../../api";
 const Comment = ({
     content,
     created_at: created,
@@ -23,7 +23,7 @@ const Comment = ({
         <div className="bg-light card-body  mb-3">
             <div className="row">
                 {isLoading ? (
-                    'Loading ...'
+                    "Loading ..."
                 ) : (
                     <div className="col">
                         <div className="d-flex flex-start ">
@@ -42,7 +42,7 @@ const Comment = ({
                                 <div className="mb-4">
                                     <div className="d-flex justify-content-between align-items-center">
                                         <p className="mb-1 ">
-                                            {user && user.name}{' '}
+                                            {user && user.name}{" "}
                                             <span className="small">
                                                 - {displayDate(created)}
                                             </span>

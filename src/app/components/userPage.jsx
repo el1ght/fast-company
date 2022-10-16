@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import api from '../api';
 import QualitiesList from './qualitieslist';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import Loader from './loader';
 
-const UserPage = ({userId}) => {
+const UserPage = ({ userId }) => {
     const history = useHistory();
     const [user, setUser] = useState();
     useEffect(() => {

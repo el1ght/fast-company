@@ -1,6 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {paginate} from '../utils/paginate';
+import { paginate } from '../utils/paginate';
 import Pagination from './pagination';
 import api from '../api';
 import GroupList from './groupList';
@@ -12,7 +12,7 @@ const Users = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [professions, setProfession] = useState();
     const [selectedProf, setSelectedProf] = useState();
-    const [sortBy, setSortBy] = useState({path: 'name', order: 'asc'});
+    const [sortBy, setSortBy] = useState({ path: 'name', order: 'asc' });
     const pageSize = 8;
 
     const [users, setUsers] = useState();
@@ -26,7 +26,7 @@ const Users = () => {
         setUsers(
             users.map((user) => {
                 if (user._id === id) {
-                    return {...user, bookmark: !user.bookmark};
+                    return { ...user, bookmark: !user.bookmark };
                 }
                 return user;
             })

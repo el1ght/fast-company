@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const TextField = ({ label, type, name, value, onChange, error }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -8,7 +8,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
         onChange({ name: target.name, value: target.value });
     };
     const getInputClasses = () => {
-        return 'form-control' + (error ? ' is-invalid' : '');
+        return "form-control" + (error ? " is-invalid" : "");
     };
     const toggleShowPassword = () => {
         setShowPassword((prevState) => !prevState);
@@ -18,14 +18,14 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
             <label htmlFor={name}>{label}</label>
             <div className="input-group has-validation">
                 <input
-                    type={showPassword ? 'text' : type}
+                    type={showPassword ? "text" : type}
                     id={name}
                     name={name}
                     value={value}
                     onChange={handleChange}
                     className={getInputClasses()}
                 />
-                {type === 'password' && (
+                {type === "password" && (
                     <button
                         className="btn btn-outline-secondary"
                         type="button"
@@ -33,7 +33,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
                     >
                         <i
                             className={
-                                'bi bi-eye' + (showPassword ? '-slash' : '')
+                                "bi bi-eye" + (showPassword ? "-slash" : "")
                             }
                         ></i>
                     </button>
@@ -44,7 +44,7 @@ const TextField = ({ label, type, name, value, onChange, error }) => {
     );
 };
 TextField.defaultProps = {
-    type: 'text'
+    type: "text"
 };
 TextField.propTypes = {
     label: PropTypes.string,

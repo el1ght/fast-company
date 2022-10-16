@@ -1,21 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Quality from './quality';
-import { useQualities } from '../../../hooks/useQualities';
+import React from "react";
+import PropTypes from "prop-types";
+import Quality from "./quality";
 
 const QualitiesList = ({ qualities }) => {
-    const { isLoading, getQualities } = useQualities();
-   if (!isLoading) {
- return (
+    return (
         <>
             {qualities.map((qual) => (
-                <Quality key={qual} {...getQualities(qual)} />
+                <Quality key={qual._id} {...qual} />
             ))}
         </>
     );
-   } else {
-      return <h1>Loading...</h1>;
-   }
 };
 
 QualitiesList.propTypes = {

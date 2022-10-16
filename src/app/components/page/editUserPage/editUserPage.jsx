@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
-import { validator } from '../../../utils/validator';
-import api from '../../../api';
-import TextField from '../../common/form/textField';
-import SelectField from '../../common/form/selectField';
-import RadioField from '../../common/form/radioField';
-import MultiSelectField from '../../common/form/multiSelectField';
-import BackHistoryButton from '../../common/backButton';
+import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { validator } from "../../../utils/validator";
+import api from "../../../api";
+import TextField from "../../common/form/textField";
+import SelectField from "../../common/form/selectField";
+import RadioField from "../../common/form/radioField";
+import MultiSelectField from "../../common/form/multiSelectField";
+import BackHistoryButton from "../../common/backButton";
 
 const EditUserPage = () => {
     const { userId } = useParams();
     const history = useHistory();
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState({
-        name: '',
-        email: '',
-        profession: '',
-        sex: 'male',
+        name: "",
+        email: "",
+        profession: "",
+        sex: "male",
         qualities: []
     });
     const [professions, setProfession] = useState([]);
@@ -98,15 +98,15 @@ const EditUserPage = () => {
     const validatorConfig = {
         email: {
             isRequired: {
-                message: 'Электронная почта обязательна для заполнения'
+                message: "Электронная почта обязательна для заполнения"
             },
             isEmail: {
-                message: 'Email введен некорректно'
+                message: "Email введен некорректно"
             }
         },
         name: {
             isRequired: {
-                message: 'Введите ваше имя'
+                message: "Введите ваше имя"
             }
         }
     };
@@ -157,9 +157,9 @@ const EditUserPage = () => {
                             />
                             <RadioField
                                 options={[
-                                    { name: 'Male', value: 'male' },
-                                    { name: 'Female', value: 'female' },
-                                    { name: 'Other', value: 'other' }
+                                    { name: "Male", value: "male" },
+                                    { name: "Female", value: "female" },
+                                    { name: "Other", value: "other" }
                                 ]}
                                 value={data.sex}
                                 name="sex"
@@ -182,7 +182,7 @@ const EditUserPage = () => {
                             </button>
                         </form>
                     ) : (
-                        'Loading...'
+                        "Loading..."
                     )}
                 </div>
             </div>

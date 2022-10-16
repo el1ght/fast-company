@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { paginate } from "../utils/paginate";
-import Pagination from "./pagination";
-import api from "../api";
-import GroupList from "./groupList";
-import SearchStatus from "./searchStatus";
-import UserTable from "./usersTable";
-import _ from "lodash";
-import Loader from "./loader";
-import UserSearch from "./userSearch";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { paginate } from '../utils/paginate';
+import Pagination from './pagination';
+import api from '../api';
+import GroupList from './groupList';
+import SearchStatus from './searchStatus';
+import UserTable from './usersTable';
+import _ from 'lodash';
+import Loader from './loader';
+import UserSearch from './userSearch';
 const UsersList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [professions, setProfession] = useState();
     const [selectedProf, setSelectedProf] = useState();
-    const [sortBy, setSortBy] = useState({ path: "name", order: "asc" });
+    const [sortBy, setSortBy] = useState({ path: 'name', order: 'asc' });
     const pageSize = 8;
     const [users, setUsers] = useState();
-    const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState('');
     const [foundedUsers, setFoundedUsers] = useState();
 
     useEffect(() => {
@@ -49,7 +49,7 @@ const UsersList = () => {
 
     const handleProfessionSelect = (item) => {
         setFoundedUsers();
-        setSearchText("");
+        setSearchText('');
         setSelectedProf(item);
     };
 
@@ -102,7 +102,7 @@ const UsersList = () => {
                             className="btn btn-secondary mt-2"
                             onClick={clearFilter}
                         >
-                            {" "}
+                            {' '}
                             Очистить
                         </button>
                     </div>

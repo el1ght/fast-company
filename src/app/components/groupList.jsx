@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const GroupList = ({
     items,
@@ -15,8 +15,8 @@ const GroupList = ({
                     <li
                         key={items[item][valueProperty]}
                         className={
-                            "list-group-item" +
-                            (items[item] === selectedItem ? " active" : "")
+                            'list-group-item' +
+                            (items[item] === selectedItem ? ' active' : '')
                         }
                         onClick={() => onItemSelect(items[item])}
                         role="button"
@@ -33,8 +33,8 @@ const GroupList = ({
                 <li
                     key={item[valueProperty]}
                     className={
-                        "list-group-item" +
-                        (item === selectedItem ? " active" : "")
+                        'list-group-item' +
+                        (item === selectedItem ? ' active' : '')
                     }
                     onClick={() => onItemSelect(item)}
                     role="button"
@@ -46,8 +46,8 @@ const GroupList = ({
     );
 };
 GroupList.defaultProps = {
-    valueProperty: "_id",
-    contentProperty: "name"
+    valueProperty: '_id',
+    contentProperty: 'name'
 };
 GroupList.propTypes = {
     items: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),

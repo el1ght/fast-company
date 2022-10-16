@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import API from '../../../api';
-import SelectField from '../form/selectField';
-import TextAreaField from '../form/textAreaField';
-import { validator } from '../../../utils/validator';
-import PropTypes from 'prop-types';
-const initialData = { userId: '', content: '' };
+import React, { useEffect, useState } from "react";
+import API from "../../../api";
+import SelectField from "../form/selectField";
+import TextAreaField from "../form/textAreaField";
+import { validator } from "../../../utils/validator";
+import PropTypes from "prop-types";
+const initialData = { userId: "", content: "" };
 
 const AddCommentForm = ({ onSubmit }) => {
     const [data, setData] = useState(initialData);
@@ -19,12 +19,12 @@ const AddCommentForm = ({ onSubmit }) => {
     const validatorConfig = {
         userId: {
             isRequired: {
-                message: 'Выберите от чьего имени вы хотите отправить сообщение'
+                message: "Выберите от чьего имени вы хотите отправить сообщение"
             }
         },
         content: {
             isRequired: {
-                message: 'Сообщение не может быть пустым'
+                message: "Сообщение не может быть пустым"
             }
         }
     };
